@@ -1,5 +1,5 @@
 # Skolemizator
-Program in SWI-Prolog for formulas skolemization.
+Program made in SWI-Prolog for formulas skolemization.
 
 ## Description
 Skolemizator is a program for converting formulas into *Skolem normal form*. 
@@ -29,12 +29,18 @@ prenex(+Formula, -FormulaInPrenexForm).
 
 This is example of how *prenex* and *skolemization* commands work:
 
-```
+```prolog
 ?- prenex(not(forall(a,not(b(a)))),X).
 X = exists(x1, b(x1)).
 
 ?- skolemization(not(forall(a,not(b(a)))),X).
 X = b(f1).
+
+?- prenex(and(forall(x,p(x)),exists(x,q(x))),X).
+X = forall(x_1, exists(x_2, and(p(x_1), q(x_2)))).
+
+?- skolemization(and(forall(x,p(x)),exists(x,q(x))),X).
+X = forall(x_1, and(p(x_1), q(f_1(x_1)))).
 ```
 
-There are more examples in the file *examples.txt*.
+There are more soficticated examples in the file *examples.txt*.
