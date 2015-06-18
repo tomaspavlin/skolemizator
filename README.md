@@ -43,4 +43,4 @@ X = forall(x_1, exists(x_2, and(p(x_1), q(x_2)))).
 X = forall(x_1, and(p(x_1), q(f_1(x_1)))).
 ```
 
-There are more soficticated examples in the file *examples.txt*.
+There are more sophicticated examples in the file *examples.txt*.
