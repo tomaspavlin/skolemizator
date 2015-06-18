@@ -4,7 +4,7 @@ prenex(forall(x,not(exists(y,pes(x,y,kocka(y))))),X).
 
 
 
-unique(forall(x,and(exists(x,a(x)),or(b(x),c(a,b,c)))),X).
+unique(forall(y,and(exists(y,a(y)),or(b(y),c(a,b,c)))),X).
 
 
 prenex(forall(x,and(exists(x,a(x)),or(b(x),c(a,b,c)))),X).
