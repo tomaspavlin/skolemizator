@@ -1,5 +1,5 @@
 % skolemization(+Formule, -SkolemizovanaFormule) :- prevede formuli do
-% 	prenexniho tvaru jen s univerzalnimi kvantifikatory
+% 	prenexniho tvaru jen s univerzalnimi kvantifikatory (sklemizace)
 skolemization(F,G) :-
 	prenex(F,F2),
 	skolemization2(F2,G).
@@ -10,8 +10,8 @@ skolemization2(F,G) :-
 	skolemization2(F,[],[],Prefix,G).
 
 % skolemization2(+FormuleVPrenex, +DependenciesList, +Substitutions, +FunctionPrefix, -SkolemF) :-
-%	skolemizuje formuli s pouzitim zavislosi a substituci
-
+%	skolemizuje formuli s pouzitim zavislosti na promennych v jiz zpracovanych univerzalnich kvantifikatorch, ve ktere navic substituuje
+%	a pro nova substitucni pravidla pouziva FunctionPrefix
 skolemization2(forall(Q,F),Ds,Ss,Prefix, G) :-
 	Ds2 = [Q|Ds],
 	skolemization2(F,Ds2,Ss,Prefix,F2),
@@ -32,20 +32,16 @@ skolemization2(F,Ds,Ss,Prefix,G) :-
 
 skolemization2(F,_,Ss,_,G) :-
 	atom(F),
-
-	%G = Ss,
 	substitute(F,Ss,G),
 	!.
 
-% skolemizuje seznam
+% skolemizuje seznam formuli
 skolemization2_all([],_,_,_,[]).
 skolemization2_all([A|As],Ds,Ss,Prefix,[B|Bs]) :-
 	skolemization2(A,Ds,Ss,Prefix,B),
 	skolemization2_all(As,Ds,Ss,Prefix,Bs). 
 
-
-
-% addrule(+Q,+Dependencies,+SubstitutionList, -SubstitutionList2)
+% addrule(+Q,+Dependencies,+SubstitutionList, +Prefix, -SubstitutionList2) :- do SubstitutionList prida nove substitucni pravidlo
 addrule(Q,Ds,Ss,Prefix,Ss2) :-
 	length(Ss,L),
 	L2 is L + 1,

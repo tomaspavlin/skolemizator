@@ -1,6 +1,6 @@
 :-
 	consult(prefix),
-	consult(substitution),
+	consult(utils),
 	consult(unique),
 	consult(prenex),
 	consult(skolemization).

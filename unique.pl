@@ -1,9 +1,10 @@
-% unique(+Formule, -Formule) :- nahradi nazvy promennych unikatnimi nazvy
+% unique(+Formule, -Formule) :- nahradi nazvy promennych ve formuli takovymi nazvy, aby se kazdy nazev ve
+%	formuli vyskytoval jen v danem kontextu (nepouzival se na vice nezavislych mistech).
 unique(F,G) :-
 	find_prefix(F,x,Prefix),
 	unique(F,[],0,Prefix,G,_).
 
-% unique(+FOrmule, +SubstituceS, +SubstituceN, -Formule, -SubstituceN)
+% unique(+FOrmule, +SubstituceS, +SubstituceN, +Prefix, -Formule, -SubstituceN)
 unique(F,S,N,Prefix,G,M) :-
 	F =.. [A,B,C],
 	kvantif(A),

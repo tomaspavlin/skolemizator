@@ -1,10 +1,7 @@
-% prenex(+Formule, -FormuleVPrenexnimTvaru).
-
+% prenex(+Formule, -FormuleVPrenexnimTvaru) :- prevede formuli do prenexniho tvaru
 prenex(X,Y) :-
 	unique(X,X2),
 	prenex2(X2,Y).
-
-% prenex2(+FormuleUnique, -FormuleVPrenex)
 
 % not(not(...))
 prenex2(not(not(X)),Y) :-
