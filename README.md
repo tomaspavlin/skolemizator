@@ -27,7 +27,7 @@ prenex(+Formula, -FormulaInPrenexForm).
 
 ## Examples
 
-This is example of how *prenex* and *skolemization* commands work:
+This is an example of how *prenex* and *skolemization* commands work:
 
 ```prolog
 ?- prenex(not(forall(a,not(b(a)))),X).
