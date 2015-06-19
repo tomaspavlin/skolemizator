@@ -11,7 +11,7 @@ To use the program, consult the file *main.pl*. Then you will be able to use thi
 skolemization(+Formula, -FormulaInSkolemNormalForm).
 ```
 
-The command above converts formula to Skolem normal form. Formula can contain following:
+The command above converts formula to Skolem normal form. Formula can contain the following:
 - universal quantifiers *forall(xxx,Subformula)*
 - existential quntifiers *exists(xxx,Subformula)*
 - conjunction *and(Subformula,Subformula)*
@@ -19,7 +19,7 @@ The command above converts formula to Skolem normal form. Formula can contain fo
 - negation *not(Subformula)*
 
 ### Other command
-You can convert formula to prenex form by typing:
+You can convert a formula to prenex form by typing:
 
 ```prolog
 prenex(+Formula, -FormulaInPrenexForm).
