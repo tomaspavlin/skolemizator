@@ -30,7 +30,7 @@ pren(+Formula, -FormulaInPrenexForm).
 
 ## Examples
 
-This is an example of how *pren* and *skolemn* commands work:
+This is an example of how *pren* and *skolem* commands work:
 
 ```prolog
 ?- pren( ^a* (^b(a)),X).

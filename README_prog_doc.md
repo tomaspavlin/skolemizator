@@ -41,10 +41,10 @@ byla v programu reprezentována jako
 ```prolog
 forall(x,and(p(x),q(x)))
 ```
-Protože taková reprezentace složitějších formulí může být pro uživatele nepřehledná, skript *converter.pl* definuje procedury **tonice** a **fromnice**, které slouží k převodu formule do resp. z hezčího tvaru. "Hezký" tvar formule výše by pak byl
+Protože taková reprezentace složitějších formulí může být pro uživatele nepřehledná, skript *converter.pl* definuje procedury **tonice** a **fromnice**, které slouží k převodu formule do resp. z "hezkého" tvaru. "Hezký" tvar formule výše by pak byl
 ```prolog
 x* (p(x)/\q(x))
 ```
-Dále skript definuje procedury pro převod formulí v "hezkém" tvaru do prefixního tvaru a do skolemizované formy **pref** a **skol**.
+Dále skript definuje procedury pro převod formulí v "hezkém" tvaru do prenexního tvaru a do skolemizované formy **pren** a **skol**.
 
 Pro testování formulí v "nehezkém" tvaru je možné použít soubor **examples.txt**, pro testování formulí v "hezkém" tvaru je možné využít **tests.pl**.
