@@ -8,39 +8,42 @@ Skolemizator is a program for converting formulas into *Skolem normal form*.
 To use the program, consult the file *main.pl*. Then you will be able to use this command:
 
 ```prolog
-skolemization(+Formula, -FormulaInSkolemNormalForm).
+skolem(+Formula, -FormulaInSkolemNormalForm).
 ```
 
 The command above converts formula to Skolem normal form. Formula can contain the following:
-- universal quantifiers *forall(xxx,Subformula)*
-- existential quntifiers *exists(xxx,Subformula)*
-- conjunction *and(Subformula,Subformula)*
-- disjunctiont *or(Subformula,Subformula)*
-- negation *not(Subformula)*
+- universal quantifiers *
+- existential quntifiers ?
+- conjunction /\
+- disjunctiont \/
+- negation ^
+- terms
+
+To see some examples of formulas, consult **tests.pl**.
 
 ### Other command
 You can convert a formula to prenex form by typing:
 
 ```prolog
-prenex(+Formula, -FormulaInPrenexForm).
+pren(+Formula, -FormulaInPrenexForm).
 ```
 
 ## Examples
 
-This is an example of how *prenex* and *skolemization* commands work:
+This is an example of how *pren* and *skolemn* commands work:
 
 ```prolog
-?- prenex(not(forall(a,not(b(a)))),X).
-X = exists(x1, b(x1)).
+?- pren( ^a* (^b(a)),X).
+X = x1?b(x1).
 
-?- skolemization(not(forall(a,not(b(a)))),X).
+?- skol( ^a* (^b(a)),X).
 X = b(f1).
 
-?- prenex(and(forall(x,p(x)),exists(x,q(x))),X).
-X = forall(x_1, exists(x_2, and(p(x_1), q(x_2)))).
+?- pren(x*p(x)/\exists(x,q(x)),X).
+X = x_1*x_2? (p(x_1)/\q(x_2)).
 
-?- skolemization(and(forall(x,p(x)),exists(x,q(x))),X).
-X = forall(x_1, and(p(x_1), q(f_1(x_1)))).
+?- skol(x*p(x)/\exists(x,q(x)),X).
+X = x_1* (p(x_1)/\q(f_1(x_1))).
 ```
 
-There are more sophicticated examples in the file *examples.txt*.
+For other examples consult *tests.pl*.
