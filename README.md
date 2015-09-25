@@ -8,7 +8,7 @@ Skolemizator is a program for converting formulas into *Skolem normal form*.
 To use the program, consult the file *main.pl*. Then you will be able to use this command:
 
 ```prolog
-skolem(+Formula, -FormulaInSkolemNormalForm).
+skol(+Formula, -FormulaInSkolemNormalForm).
 ```
 
 The command above converts formula to Skolem normal form. Formula can contain the following:
@@ -39,10 +39,10 @@ X = x1?b(x1).
 ?- skol( ^a* (^b(a)),X).
 X = b(f1).
 
-?- pren(x*p(x)/\exists(x,q(x)),X).
+?- pren(x*p(x)/\x?q(x),X).
 X = x_1*x_2? (p(x_1)/\q(x_2)).
 
-?- skol(x*p(x)/\exists(x,q(x)),X).
+?- skol(x*p(x)/\x?q(x),X).
 X = x_1* (p(x_1)/\q(f_1(x_1))).
 ```
 
