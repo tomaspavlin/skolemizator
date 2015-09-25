@@ -3,4 +3,5 @@
 	consult(utils),
 	consult(unique),
 	consult(prenex),
-	consult(skolemization).
+	consult(skolemization),
+	consult(converter).

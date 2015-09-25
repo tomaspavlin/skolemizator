@@ -31,3 +31,18 @@ Převod funguje tak, že se nejdříve formule převede do formule s unikátním
 Definuje proceduru **skolemization(+Formule, -SkolemizovanaFormule)**, která skolemizuje formuli (převede formuli do prenexního tvaru jen s univerzálními kvantifikátory).
 
 Procedura funguje tak, že formuli nejdříve převede do prenexního tvaru a pak postupně odstraňuje existenční kvantifikátory.
+
+## converter.pl
+Všechny zmiňované formule výše byly v programu reprezantovány pomocí termů. Tedy například formule popsaná slovy jako
+'''
+Pro všechna x platí p(x) a zároveň q(x).
+'''
+byla v programu reprezentována jako
+'''prolog
+forall(x,and(p(x),q(x)))
+'''
+Protože taková reprezentace složitějších formulí může být pro uživatele nepřehledná, skript *converter.pl* definuje procedury **tonice** a **fromnice**, které slouží k převodu formule do resp. z hezčího tvaru. "Hezký" tvar formule výše by pak byl
+'''prolog
+x* (p(x)/\q(x))
+'''
+Dále skript definuje procedury pro převod formulí v "hezkém" tvaru do prefixního tvaru a do skolemizované formy **pref** a **skol**.

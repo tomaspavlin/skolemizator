@@ -10,13 +10,13 @@ skolemization(and(forall(x,p(x)),exists(x,q(x))),X).
 skolemization(exists(a,forall(b,forall(c,exists(d,exists(e,forall(f,p(a,b,c,d,e,f))))))),X).
 
 
+
 % prenex big test
 Command:
 
 prenex(and(not(and(or(forall(x,not(p(x))),p(abc)),exists(x,q(x)))),forall(abc,r(abc,x))),X).
 
 Input:
-
 and(
 	not(
 		and(
